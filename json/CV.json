@@ -1,0 +1,14 @@
+{
+  "SettingsVersion": 1.2,
+  "SimMode": "ComputerVision",
+  "CameraDefaults": {
+	"CaptureSettings": [
+		{
+			"ImageType": 0,
+			"Width": 752,
+			"Height": 480,
+			"FOV_Degrees": 90
+		}
+	]
+  }
+}
