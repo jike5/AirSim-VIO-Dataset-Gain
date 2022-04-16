@@ -1,7 +1,12 @@
-/* 生成VIODE数据集第一步
+// Author: jike5
+// Email: zhenxinzhu163@163.com
+// Date: 2022 04 16
+
+/* 生成AirSim仿真数据集第一步
 * 采集IMU数据和参考轨迹
 * IMU: 200Hz  GroundTruth: 30Hz
 */
+
 #include <string>
 #include <vector>
 #include <fstream>

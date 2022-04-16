@@ -1,8 +1,13 @@
-/* 生成VIODE数据集第二步
+// Author: jike5
+// Email: zhenxinzhu163@163.com
+// Date: 2022 04 16
+
+/* 生成AirSim仿真数据集第二步
 * 采集参考轨迹上的Image数据
 * Image: 30Hz
 * 需要将json切换为Computer Vision模式
 */
+
 #include <string>
 #include <vector>
 #include <fstream>
