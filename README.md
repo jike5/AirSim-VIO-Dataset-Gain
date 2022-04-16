@@ -1,6 +1,6 @@
 # AirSim-Dataset-Gain
 
-#### 介绍
+#### 1 介绍
 本项目为参考[VIODE](https://github.com/kminoda/VIODE)数据集的采集方法进行的复现，可以实现采集高频率、高质量的IMU和图像数据。
 
 VIODE 数据集介绍:  
@@ -8,13 +8,27 @@ VIODE 数据集介绍:
 
 **本项目介绍**
 
+* 本项目目前支持采集采集`IMU`、`单目Image`和`GroundTruth`数据，采集时为`EuRoc`的ASL格式，提供了Python[脚本](./scripts/euroc2rosbag.py)可以转换为`rosbag`格式
 
+* 本项目提供了所需要的源代码和json配置文件(硬件在环方式)
 
-#### 系统架构
+* 本项目提供了运行`vins-mono`所需的[参考配置文件](./calibration_files/airsim_config.yaml)，并提供了[相关文档](https://zhuanlan.zhihu.com/p/482098440)用于支持计算自定义的内外参
+
+* 本项目同时提供了evo评估工具在数据集上的[使用方法]() **（空缺链接！随后补上）**
+
+* 本项目提供部分本人采集的数据集：
+
+  <img src=".assets/NH_数据集图片.png" alt="NH_数据集图片" style="zoom: 33%;" />
+
+  <img src=".assets/myVIODE数据内容展示.jpg" alt="myVIODE数据内容展示" style="zoom: 35%;" />
+
+#### 2 系统架构
 
 <img src=".assets/VIODE方法架构图-16501021690221.png" alt="VIODE方法架构图" style="zoom: 25%;" />
 
-#### 运行环境
+> **您可以不选择使用硬件在环的方式，只要能够实现对AirSim中的无人机进行运动控制即可**
+
+#### 3 运行环境
 
 本项目基于AirSim、UE4等环境，具体版本：
 
@@ -24,7 +38,7 @@ VIODE 数据集介绍:
 * IDE：Visual Studio2019([可以正常编译AirSim](https://microsoft.github.io/AirSim/build_windows/))
 
 
-#### 安装教程
+#### 4 安装教程
 
 ##### Prerequests
 
@@ -36,7 +50,7 @@ VIODE 数据集介绍:
    git clone https://github.com/jike5/AirSim-VIO-Dataset-Gain.git
    ```
 
-#### 使用说明
+#### 5 使用说明
 
 1. 将本项目文件添加到`AirSim`项目中
 
@@ -46,7 +60,7 @@ VIODE 数据集介绍:
 
    * 复制本项目的`*.cpp`到`HelloDrone`目录
 
-   <img src=".assets\image-20220416192259756.png" alt="image-20220416192259756" style="zoom:67%;" />
+   <img src=".assets\image-20220416192259756.png" alt="image-20220416192259756" style="zoom: 33%;" />
 
 2. 使用Visual Studio2019打开AirSim项目
 
@@ -54,15 +68,15 @@ VIODE 数据集介绍:
 
       设置启动项：
 
-      <img src=".assets/image-20220416192832064.png" alt="image-20220416192832064" style="zoom:67%;"/>
+      <img src=".assets/image-20220416192832064.png" alt="image-20220416192832064" style="zoom: 33%;"/>
 
       包含`step_one.cpp`和`step_two.cpp`
 
-      ![image-20220416193236557](.assets/image-20220416193236557.png)
+      <img src=".assets/image-20220416193236557.png" alt="image-20220416193236557" style="zoom: 50%;" />
 
       右键`main.cpp`-->`属性`-->从生成排除：是
 
-      <img src=".assets/image-20220416193336130.png" alt="image-20220416193336130" style="zoom:67%;" />
+      <img src=".assets/image-20220416193336130.png" alt="image-20220416193336130" style="zoom: 50%;" />
 
       用同样的方法将`step_one.cpp`设置为：`从生成排除：否`；将`step_two.cpp`设置为：`从生成排除：是`
 
@@ -93,13 +107,32 @@ VIODE 数据集介绍:
 
       回到Visual Studio2019，`F5`启动程序，默认数据会保存在`D:\\AirSim\\dataset`下，文件夹名为当前日期和时间，格式与[EuRoc](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets#the_euroc_mav_dataset)数据集保持一致
 
-      <img src=".assets/EuRoc数据集格式.png" alt="EuRoc数据集格式" style="zoom:33%;" />
+      <img src=".assets/EuRoc数据集格式.png" alt="EuRoc数据集格式" style="zoom: 25%;" />
 
-      
+5. 采集相机数据
 
-   
+      (1) 采集相机数据前，需要到默认的数据保存目录(`D:\\AirSim\\dataset`)下复制刚刚`IMU`和`GT`数据所在的文件夹名：
+
+      ![image-20220416204814112](.assets/image-20220416204814112.png)
+
+      这样才能保证数据在同一目录下。
+
+      (2) 设置json；将`json/cv.json`文件内容复制到`settings.json`，将AirSim设置为CV模式，`cv.json`默认设置相机平视，像素为`752*480`，您可以自己修改外参和内参，具体参考：[资料1](https://zhuanlan.zhihu.com/p/482098440)和[资料2](./calibration_files/airsim_config.yaml)
+
+      (3) 设置`step_two.cpp`: `从生成排除：否`，并将`step_one.cpp`从生成中排除
+
+      (4) 打开AirSim场景，回到Visual Studio，`F5`运行，即可看到AirSim窗口在一帧一帧的采集图像数据。
+
+6. 如果您需要获得`rosbag`格式，您需要一台安装了ros的电脑。本项目在`scripts/euroc2rosbag.py`中提供了转换的脚本，使用方法：
+
+      ```
+      cd scripts
+      python euroc2rosbag.py --folder MH_01 --output-bag MH_01.bag
+      ```
 
 #### 参与贡献
+
+[gitee上提交PR和issue流程和注意事项](https://xie.infoq.cn/article/3c5e8757345d4a3208aa48ca6)
 
 1.  Fork 本仓库
 2.  新建 Feat_xxx 分支
@@ -107,4 +140,14 @@ VIODE 数据集介绍:
 4.  新建 Pull Request
 
 #### TODO
+
+后续可能会增加双目、深度图、语义等数据，目前本人暂无需求
+
+> **Contact:** 
+>
+> Email: zhenxinzhu163@163.com
+>
+> B站/知乎：智能之欣
+>
+> GZH：SLAM学习er
 
