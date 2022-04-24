@@ -147,7 +147,6 @@ VIODE 数据集介绍:
 >
 > Email: zhenxinzhu163@163.com
 >
-> B站/知乎：智能之欣
+> B站/知乎/GZH：智能之欣
 >
-> GZH：SLAM学习er
 
