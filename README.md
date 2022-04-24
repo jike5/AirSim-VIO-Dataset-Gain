@@ -18,7 +18,7 @@ VIODE 数据集介绍:
 
 * 本项目提供部分本人采集的数据集：
 
-  <img src=".assets/NH_数据集图片.png" alt="NH_数据集图片" style="zoom: 33%;" />
+  <img src=".assets/NH_数据集图片.png" alt="NH_数据集图片" width="150" height="200" />
 
   <img src=".assets/myVIODE数据内容展示.jpg" alt="myVIODE数据内容展示" style="zoom: 35%;" />
 
