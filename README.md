@@ -20,11 +20,11 @@ VIODE 数据集介绍:
 
   <img src=".assets/NH_数据集图片.png" alt="NH_数据集图片" width="640" height="480" />
 
-  <img src=".assets/myVIODE数据内容展示.jpg" alt="myVIODE数据内容展示" style="zoom: 35%;" />
+  <img src=".assets/myVIODE数据内容展示.jpg" alt="myVIODE数据内容展示" width="480" height="320" />
 
 #### 2 系统架构
 
-<img src=".assets/VIODE方法架构图-16501021690221.png" alt="VIODE方法架构图" style="zoom: 25%;" />
+<img src=".assets/VIODE方法架构图-16501021690221.png" alt="VIODE方法架构图" width="600" height="480" />
 
 > **您可以不选择使用硬件在环的方式，只要能够实现对AirSim中的无人机进行运动控制即可**
 
@@ -60,7 +60,7 @@ VIODE 数据集介绍:
 
    * 复制本项目的`*.cpp`到`HelloDrone`目录
 
-   <img src=".assets\image-20220416192259756.png" alt="image-20220416192259756" style="zoom: 33%;" />
+   <img src=".assets\image-20220416192259756.png" alt="image-20220416192259756" width="640" height="340" />
 
 2. 使用Visual Studio2019打开AirSim项目
 
@@ -68,15 +68,15 @@ VIODE 数据集介绍:
 
       设置启动项：
 
-      <img src=".assets/image-20220416192832064.png" alt="image-20220416192832064" style="zoom: 33%;"/>
+      <img src=".assets/image-20220416192832064.png" alt="image-20220416192832064" width="440" height="380"/>
 
       包含`step_one.cpp`和`step_two.cpp`
 
-      <img src=".assets/image-20220416193236557.png" alt="image-20220416193236557" style="zoom: 50%;" />
+      <img src=".assets/image-20220416193236557.png" alt="image-20220416193236557" width="540" height="380" />
 
       右键`main.cpp`-->`属性`-->从生成排除：是
 
-      <img src=".assets/image-20220416193336130.png" alt="image-20220416193336130" style="zoom: 50%;" />
+      <img src=".assets/image-20220416193336130.png" alt="image-20220416193336130" width="540" height="280" />
 
       用同样的方法将`step_one.cpp`设置为：`从生成排除：否`；将`step_two.cpp`设置为：`从生成排除：是`
 
@@ -107,13 +107,13 @@ VIODE 数据集介绍:
 
       回到Visual Studio2019，`F5`启动程序，默认数据会保存在`D:\\AirSim\\dataset`下，文件夹名为当前日期和时间，格式与[EuRoc](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets#the_euroc_mav_dataset)数据集保持一致
 
-      <img src=".assets/EuRoc数据集格式.png" alt="EuRoc数据集格式" style="zoom: 25%;" />
+      <img src=".assets/EuRoc数据集格式.png" alt="EuRoc数据集格式" width="640" height="200" />
 
 5. 采集相机数据
 
       (1) 采集相机数据前，需要到默认的数据保存目录(`D:\\AirSim\\dataset`)下复制刚刚`IMU`和`GT`数据所在的文件夹名：
 
-      ![image-20220416204814112](.assets/image-20220416204814112.png)
+      <img src=".assets/image-20220416204814112.png" width="640" higth="400" >
 
       这样才能保证数据在同一目录下。
 
