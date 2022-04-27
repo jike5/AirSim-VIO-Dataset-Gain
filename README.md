@@ -3,8 +3,6 @@
 #### 1 介绍
 本项目为参考[VIODE](https://github.com/kminoda/VIODE)数据集的采集方法进行的复现，可以实现采集高频率、高质量的IMU和图像数据。
 
-VIODE 数据集介绍:  
-[![VIODE](http://img.youtube.com/vi/LlFTyQf_dlo/0.jpg)](https://youtu.be/LlFTyQf_dlo "VIODE")
 
 **本项目介绍**
 
