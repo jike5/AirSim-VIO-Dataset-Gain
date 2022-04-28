@@ -16,9 +16,15 @@
 
 * 本项目提供部分本人采集的数据集：
 
+  本场景下载地址：[001](https://github.com/microsoft/AirSim/releases/download/v1.6.0-windows/CityEnviron.zip.001),[002](https://github.com/microsoft/AirSim/releases/download/v1.6.0-windows/CityEnviron.zip.002)
+  
   <img src=".assets/NH_数据集图片.png" alt="NH_数据集图片" width="640" height="480" />
+  
+  本场景下载地址：[AirSimNH](https://github.com/microsoft/AirSim/releases/download/v1.6.0-windows/AirSimNH.zip)
 
   <img src=".assets/myVIODE数据内容展示.jpg" alt="myVIODE数据内容展示" width="480" height="320" />
+  
+  
 
 #### 2 系统架构
 
@@ -81,6 +87,8 @@
       这样`F5`就会启动`HelloDrone`项目下的`step_one.cpp`的`main`函数了，后面切换第二步时只需用把`step_one.cpp`从生成排除，把`step_two.cpp`包含即可。在启动该程序前还需要配置一下硬件在环控制。
 
 3. 设置`settings.json`
+
+      **本项目的`json/`目录下提供了我所使用到的所有settings.json文件**
 
       本项目中`json/`目录下提供了硬件在环的json文件：`px4.json`
 
